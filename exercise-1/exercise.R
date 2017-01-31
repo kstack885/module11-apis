@@ -1,13 +1,21 @@
 ### Exercise 1 ###
 
 # Load the httr and jsonlite libraries for accessing data
-
-
+library(httr)
+library(jsonlite)
 ## For these questions, look at the API documentation to identify the appropriate endpoint and information.
 ## Then send GET() request to fetch the data, then extract the answer to the question
 
 # For what years does the API have statistical data?
-
+state.main <- "http://data.unhcr.org/api/stats/"
+time.resource <- "time_series_years.json"
+uri <- paste0(state.main, time.resource)
+response <- content(uri, "text")
+response <- fromJSON(response)
+is.list(response)
+response
+str(response)
+names(response)
 
 # What is the "country code" for the "Syrian Arab Republic"?
 
